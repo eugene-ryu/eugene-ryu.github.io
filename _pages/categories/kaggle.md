@@ -1,5 +1,5 @@
 ---
-title: "캐글 컴프티션 후기"
+title: "The Reviews of Kaggle Competitions"
 layout: archive
 pemalink: categories/kaggle
 author_profile: true
