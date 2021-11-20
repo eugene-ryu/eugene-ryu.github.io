@@ -7,7 +7,6 @@ categories:
 tags:
   - [machine learning, paper, review, NLP, CNN, convolution, natural language processing]
 
-use_math: true
 toc: true
 toc_sticky: true
 
@@ -15,66 +14,63 @@ date: 2019-07-05
 last_modified_at: 2021-11-20
 ---
 
-# Convolutional Neural Networks for Sentence Classification 
-
-
 ## Novelty
 1) very fast and strong with a single CNN layer<br>
-(the results of former papers that used CNN was not quite good at NLP tasks)<br>
-2) use pre-trained word vectors (it is a google negative300.bin)<br><br>
+(the results of former papers that used CNN was not quite good at NLP tasks)<br<br><br>
+2) use pre-trained word vectors (it is a google negative300.bin)<br>
 
 
-## A Summary of Abstract & Model Architecuture
+## A summary of abstract & model architecuture
 ```
 We report on a series of experiments with CNN trained on top of pre-trained word vectors for sentence-level classification tasks. We show that a simple CNN with little hyperparameter tuning and static vectors achieves excellent results on multiple benchmarks.
 ```
 <br>
-
 ![model_architecture](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQJsve%2FbtqDO2F3iyf%2FnY0JZGSJKzy202pYxOjJt0%2Fimg.png)<br><br>
 
-## A Matrix for Word Vectors
-$\mathbf{x}$ : input vector<br>
-$H$ : a filter size (h=[2,3,5])<br>
-$N$ : a number of vocabulary<br><br><br>
+## Matrix for word vectors
+**x**: input vector<br>
+H: a filter size (h=[2,3,5])<br>
+N: a number of vocabulary<br><br><br>
 
 
 ### Preprocess
 1) Concatenate a word vector to make a lookup table<br>
-$\mathbf{x}_{i}$ :  a word vector<br><br>
-![x_i_to_n](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmMxbT%2FbtqDNmSM9JX%2Fnefwvk6MPwviiQq80v8RM0%2Fimg.png)<br>
+x_(i): a word vector<br>
+![x_i_to_n](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmMxbT%2FbtqDNmSM9JX%2Fnefwvk6MPwviiQq80v8RM0%2Fimg.png)<br><br>
 
-   ⊕: concatention operator<br>
-$\mathbf{x}_{i+j}$ : the concatenation of words $\mathbf{x}_{i}, \mathbf{x}_{i+1}, ... ,\mathbf{x}_{i+j}$<br><br>
-2) Conduct a convolution operation with filter w to make a feature $c_{i}$<br>
-$\mathbf{w}$ : a filter for convolution operation<br><br>
+⊕: concatention operator<br>
+x_(i+j): the concatenation of words x_(i), x_(i+1), ... ,x_(i+j)<br><br><br>
+
+2) Conduct a convolution operation with filter w to make a feature c_(i)<br>
+w: a filter for convolution operation<br>
 ![w](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbs1RhX%2FbtqTfCyQtX3%2FkrhwwrqVQvTX9jONnFOB11%2Fimg.png)<br><br><br>
 
-   $h$: a window of h words (to produce a new feature)<br>
-   $k$: the dimension of a word vector (in this paper, it is 300)<br><br>
+h: a window of h words (to produce a new feature)<br>
+k: the dimension of a word vector (in this paper, 300)<br>
 ![k](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FKfb0p%2FbtqThZN25IL%2FKQTOLoQ03mEzn7XsV2sZrk%2Fimg.png)<br><br>
 
-$\mathbf{c}_{i}$ : a feature (generated from a window of words $\mathbf{x}_{i:i+h-1}$ by the above equation)<br>
-   $f$ : a non-linear function<br><br><br>
+c_(i): a feature (generated from a window of words x_(i:i+h-1) by the above equation)<br>
+f: a non-linear function<br><br><br>
 
 
-3) Create a feature map with a feature $\mathbf{c}_{i}$<br><br>
+3) Create a feature map with a feature c_(i)<br>
 ![c_(i)](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb7dydM%2FbtqTfBUeVae%2Fhi21FZKpBkMgFjltA9bok1%2Fimg.png)<br><br>
-$\mathbf{c} \in \mathbf{R}^{n-h+1}$<br><br><br>
+c is a subset of R^(n-h+1)<br><br><br>
 
-4) apply a max-over-time pooling over the feature map $\hat{c}$<br><br>
+4) apply a max-over-time pooling over the feature map c<br>
 ![c](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FkH6S1%2FbtqS9ZH7dtQ%2F7HZZ4aHDRwtivpSOY2fJ10%2Fimg.png)<br><br>
 
-the maximum value $\hat{c}$ as the feature corresponding to this particular filter.
-(The idea is to capture the most importance feature - one with the highest value - for each feature map.)<br><br>
+the maximum value c_hat as the feature corresponding to this particular filter.<br>
+(The idea is to capture the most importance feature - one with the highest value - for each feature map.)<br><br><br>
 
-These features form the penultimate layer and are passed to a fully connected softmax layer whose output is the probability distribution over labels. (by using dropout and L2-norms, the penultimate layer has created)<br><br>
+These features form the penultimate layer and are passed to a fully connected softmax layer whose output is the probability distribution over labels.<br>
+(by using dropout and L2-norms, the penultimate layer has created)<br><br>
 ![the equation of penultimate layer](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FtOQJ5%2FbtqTfClxdSp%2FjROYJdM1Nx7hkXOCCXApO1%2Fimg.png)
-<br><br><br>
+<br><br><br><br>
 
 
 ## Experimental Setup
-
-![Datasets](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F9G61a%2FbtqTjDxs1eI%2FW6vIhszSrVxR7Ldof4p1ek%2Fimg.png)<br><br><br>
+![Datasets](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F9G61a%2FbtqTjDxs1eI%2FW6vIhszSrVxR7Ldof4p1ek%2Fimg.png)
 
 
 ## Hyperparameters and Training
@@ -85,8 +81,8 @@ These features form the penultimate layer and are passed to a fully connected so
 - dropout rate: 0.5<br>
 - L2 constraint: s = 3<br>
 - pre-trained vectors : Google negative300.bin<br>
-- out-of-vocabulary word: randomly and uniformly initialized vector<br>
-- cv-fold: 10<br><br><br>
+- out-of-vocabulary word: randomly and uniformly initialized vector<br><br><br>
+- cv-fold: 10
 
 ## Model Variants
 1) CNN-rand : all word vectors has randomly initialized.
@@ -95,8 +91,8 @@ These features form the penultimate layer and are passed to a fully connected so
 4) CNN-multi-channel: a part of word vectors are not changed and others are changed during training<br><br><br>
 
 
-## Multi-Channel  vs. Single Channel Models
-Multi-channel model showed a good performance that compare to single channel models. However, the performance results were mixed of multi and single channel models.<br><br><br>
+## Multi-Channel vs. Single Channel Models
+Multi-channel model showed a good performance that compare to single channel models. However, the performance results were mixed of multi and single channel models.<br><br>
 
 
 ## Static vs. Non-static Representations
