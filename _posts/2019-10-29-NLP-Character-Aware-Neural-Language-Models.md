@@ -70,7 +70,7 @@ All of the $\mathbf{W}_{T}$ and $\mathbf{W}_{H}$ are square matrices, for a comp
 |$t$ : timestep|e.g. : [someone, has, a, dream, ...]|
 |$C$ : vocabulary of characters|the size of character embeddings: 15|
 |$d$ : the dimensionality of character embeddings|$d=15$<br>If word=<k','n'.'o','w'>, then the dimension of character-level embedding vector is 15 by 4|
-|$Q$ : $\mathbf{R}^{{d} \times {\mathbf{card}(C)}}$, a matrix character embeddings| $\mathbf{card}(C) $ is a cardinality of all characters. $Q$ is a character embedding matrix for all words|
+|$Q$ : $\mathbf{R}^{{d} \times \mathbf{card}(C)}$, a matrix character embeddings| $\mathbf{card}(C) $ is a cardinality of all characters. $Q$ is a character embedding matrix for all words|
 |$\mathbf{C}^{k}$ : a matrix of character embedding for word $k$|If word=<'k','n','o','w'> then 15 by 65. 65 was a max_word_length in the codes. START,END,EOS were applied as well.|   
 |$H$: filter, $H$ is a subset of $\mathbf{R}^{{d} \times \mathbf{w}}$|$\mathbf{w}$ is a width of convolution filter, $w = [1,2,3,4,5,6,7]$ (a large model) <br>Thus, $\mathbf{d} \times \mathbf{w}$ means [15 by 1],[15 by 2],[15 by 3],[15 by 4],[15 by 5],[15 by 6],[15 by 7]. All these $H$ kernel matrix will be product to all words.| 
 |${f}^{k}$ is a subset of $\mathbf{R}^{l-1}$ : a feature map||
