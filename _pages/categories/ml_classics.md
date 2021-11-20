@@ -1,5 +1,5 @@
 ---
-title: "The Machine Learning Classics"
+title: "머신러닝 책들 읽고 정리"
 layout: archive
 permalink: categories/ml_classics
 author_profile: true

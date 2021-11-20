@@ -1,5 +1,5 @@
 ---
-title: "The implementations of ML Papers"
+title: "머신러닝 논문 구현"
 layout: archive
 permalink: categories/paper_implement
 author_profile: true
