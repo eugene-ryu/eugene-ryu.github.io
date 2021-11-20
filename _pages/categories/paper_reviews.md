@@ -1,5 +1,5 @@
 ---
-title: "the reviews of ML Papers"
+title: "머신러닝 논문들 리뷰"
 layout: archive
 permalink: categories/paper_reviews
 author_profile: true
