@@ -3,10 +3,11 @@ title: "[NLP] Convolutional Neural Networks for Sentence Classification"
 excerpt: "CNN for Sentence Classification 논문 리뷰"
 
 categories: 
-  - Blog
+  - paper_reviews
 tags:
   - [machine learning, paper, review, NLP, CNN, convolution, natural language processing]
 
+use_math: true
 toc: true
 toc_sticky: true
 
@@ -21,10 +22,8 @@ last_modified_at: 2021-11-20
 
 
 ## A summary of abstract & model architecuture
-```
-We report on a series of experiments with CNN trained on top of pre-trained word vectors for sentence-level classification tasks. We show that a simple CNN with little hyperparameter tuning and static vectors achieves excellent results on multiple benchmarks.
-```
-<br>
+We report on a series of experiments with CNN trained on top of pre-trained word vectors for sentence-level classification tasks. We show that a simple CNN with little hyperparameter tuning and static vectors achieves excellent results on multiple benchmarks.<br><br>
+
 ![model_architecture](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQJsve%2FbtqDO2F3iyf%2FnY0JZGSJKzy202pYxOjJt0%2Fimg.png)<br><br>
 
 ## Matrix for word vectors
