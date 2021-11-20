@@ -15,7 +15,7 @@
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "ko-KR" # "en-US"
+locale                   : "en-US"
 title                    : "Eugene's Machine Learning"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
@@ -122,7 +122,7 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/eugene-ryu"
+      url: "https://github.com/eugene-ryu/"
     # - label: "Instagram"
       # icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
