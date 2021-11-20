@@ -184,7 +184,7 @@ exclude:
 keep_files:
   - .git
   - .svn
-encoding: "latin-1" #"utf-8"
+encoding: "iso-8859-1" # "utf-8" 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 
