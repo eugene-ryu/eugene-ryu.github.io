@@ -44,7 +44,7 @@ $\mathbf{x}_{i}$ :  a word vector<br><br>
 ![x_i_to_n](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmMxbT%2FbtqDNmSM9JX%2Fnefwvk6MPwviiQq80v8RM0%2Fimg.png)<br>
 
    ⊕: concatention operator<br>
-   $\mathbf{x}_{i+j}$ : the concatenation of words $\mathbf{x}_{i}, \mathbf{x}_{i+1}, ... ,\mathbf{x}_{i+j}$<br><br>
+$\mathbf{x}_{i+j}$ : the concatenation of words $\mathbf{x}_{i}, \mathbf{x}_{i+1}, ... ,\mathbf{x}_{i+j}$<br><br>
 2) Conduct a convolution operation with filter w to make a feature $c_{i}$<br>
 $\mathbf{w}$ : a filter for convolution operation<br><br>
 ![w](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbs1RhX%2FbtqTfCyQtX3%2FkrhwwrqVQvTX9jONnFOB11%2Fimg.png)<br><br><br>
@@ -53,7 +53,7 @@ $\mathbf{w}$ : a filter for convolution operation<br><br>
    $k$: the dimension of a word vector (in this paper, it is 300)<br><br>
 ![k](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FKfb0p%2FbtqThZN25IL%2FKQTOLoQ03mEzn7XsV2sZrk%2Fimg.png)<br><br>
 
-   $\mathbf{c}_{i}$ : a feature (generated from a window of words $\mathbf{x}_{i:i+h-1}$ by the above equation)<br>
+$\mathbf{c}_{i}$ : a feature (generated from a window of words $\mathbf{x}_{i:i+h-1}$ by the above equation)<br>
    $f$ : a non-linear function<br><br><br>
 
 
