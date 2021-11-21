@@ -1,6 +1,6 @@
 ---
 title: "[NLP] Character-Aware Neural Language Models"
-excerpt: "Character aware neural language models 논문 리뷰"
+excerpt: "A Review of Character aware neural language models"
 
 categories: 
   - paper_reviews

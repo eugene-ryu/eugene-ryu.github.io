@@ -1,6 +1,6 @@
 ---
 title: "[NLP] Convolutional Neural Networks for Sentence Classification"
-excerpt: "CNN for Sentence Classification 논문 리뷰"
+excerpt: "A Review of CNN for Sentence Classification"
 
 categories: 
   - paper_reviews
